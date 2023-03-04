@@ -1,20 +1,50 @@
+server:
+  port: 8080
+  servlet:
+    context-path: "/api/v1"
+    session:
+      timeout: 120m
+  tomcat:
+    min-spare-threads: 50
+    max-threads: 500
+    accesslog:
+      buffered: true
+      enabled: true
+      file-date-format: .yyyy-MM-dd
+      pattern: '%h %l %u %t "%r" %s %b %D'
+      prefix: access_log
+      rename-on-rotate: false
+      request-attributes-enabled: false
+      rotate: true
+      suffix: .log
+      directory: logs
 
 spring:
+  profiles:
+    active: default
   datasource:
     url: jdbc:mysql://101.34.124.113:3306/self01?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8&useLegacyDatetimeCode=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useAffectedRows=true
     username: ${DATABASE_USERNAME:cdd}
     password: ${DATABASE_PASSWORD:Cdd123456@}
     driverClassName: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
 
 #mp日志打印-形式1：
 #mybatis-plus:
 # configuration:
 #  log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #mp日志打印-形式2：
+#logging:
+#  level:
+#    com:
+#      cdd:
+#        self01:
+#          repository:
+#            mapper: debug
+
 logging:
   level:
-    com:
-      cdd:
-        self01:
-          repository:
-            mapper: debug
+    root: info
