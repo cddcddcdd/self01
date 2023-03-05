@@ -48,3 +48,5 @@ spring:
 logging:
   level:
     root: info
+
+LOG_DIR: cdd_log
