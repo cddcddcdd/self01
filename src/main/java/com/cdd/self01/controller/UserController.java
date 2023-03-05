@@ -1,7 +1,7 @@
 package com.cdd.self01.controller;
 
-import com.cdd.self01.common.api.ApiResponse;
-import com.cdd.self01.common.api.PageResponse;
+import com.cdd.common.api.ApiResponse;
+import com.cdd.common.api.PageResponse;
 import com.cdd.self01.dto.user.request.ListUserReq;
 import com.cdd.self01.dto.user.response.ListUserResp;
 import com.cdd.self01.service.user.UserService;
@@ -22,7 +22,6 @@ public class UserController {
 
     @GetMapping("")
     public ApiResponse<PageResponse<ListUserResp>> list(ListUserReq req) {
-        System.out.println(1/0);
         return ApiResponse.ok(userService.listUser(req));
     }
 

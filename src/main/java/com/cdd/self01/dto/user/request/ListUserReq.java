@@ -1,6 +1,6 @@
 package com.cdd.self01.dto.user.request;
 
-import com.cdd.self01.common.api.PageRequest;
+import com.cdd.common.api.PageRequest;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
